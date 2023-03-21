@@ -3,10 +3,11 @@ from . import views
 from .views import MyTokenObtainPairView
 from rest_framework import routers
 from django.conf.urls import include
-from .views import UserViewSet
+from .views import UserViewSet, VideoView
 
 router = routers.DefaultRouter()
 router.register('users', UserViewSet)
+router.register('videos', VideoView)
 
 from rest_framework_simplejwt.views import (
     TokenRefreshView,
