@@ -1,32 +1,30 @@
-import React, {useContext} from 'react'
-import AuthContext from '../context/AuthContext'
+import React from 'react';
 
 const LoginPage = () => {
-    let {loginUser} = useContext(AuthContext)
-    return (
-         <div>
+  return (
+    <div>
       <div className="max-w-[1240px] m-auto p-4 h-screen">
         <h1 className="text-2xl font-bold text-center p-4">Войти в аккаунт</h1>
-        <form className="max-w-[600px] m-auto" onSubmit={loginUser}>
+        <form className="max-w-[600px] m-auto">
           <input
             className="w-full my-2 border shadow-lg p-3 first-letter:"
             type="text"
-            name="username"
             placeholder="Ваша почта"
           />
 
           <input
             className="w-full my-2 border shadow-lg p-3 first-letter:"
             type="text"
-            name="password"
             placeholder="Ваш пароль "
           />
 
-          <input type="submit"/>
+          <button type="submit" className="border shadow-lg p-3 w-full mt-2">
+            Войти в аккаунт
+          </button>
         </form>
       </div>
     </div>
-    )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
