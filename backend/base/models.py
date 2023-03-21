@@ -28,3 +28,11 @@ class Teacher(models.Model):
     password = models.CharField(max_length=255)
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True)
 
+
+class Video(models.Model):
+    caption = models.CharField(max_length=100)
+    video = models.FileField(upload_to="video/%y")
+
+    def __str__(self):
+        return self.caption
+
