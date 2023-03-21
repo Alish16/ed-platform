@@ -1,5 +1,6 @@
 import React, {useContext} from 'react'
 import AuthContext from '../context/AuthContext'
+import {Link} from 'react-router-dom'
 
 const LoginPage = () => {
     let {loginUser} = useContext(AuthContext)
@@ -24,6 +25,14 @@ const LoginPage = () => {
 
           <input type="submit"/>
         </form>
+        <div className="flex space-x-5 mt-5 justify-center items-center">
+          <span>Нет аккаунта?</span>
+          <Link
+            className="rounded-full bg-blue-400 px-5 py-3 text-base  font-medium text-white transition duration-200 hover:bg-blue-600 active:bg-blue-700"
+            to="/register">
+            Зарегистрируйтесь
+          </Link>
+        </div>
       </div>
     </div>
     )

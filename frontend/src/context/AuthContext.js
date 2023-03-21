@@ -35,6 +35,33 @@ export const AuthProvider = ({children}) => {
         }
     }
 
+    let registerUser = async (e )=> {
+        e.preventDefault()
+        let response = await fetch('http://127.0.0.1:8000/api/users/', {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify({'firstName':e.target.first_name.value,
+                'lastName':e.target.last_name.value,
+                'number':e.target.phone_number.value,
+                'email':e.target.email.value,
+                'role':e.target.role.value,
+                'password':e.target.password.value,
+                })
+        })
+        let data = await response.json()
+        console.log(data)
+
+        if(response.status === 200){
+            setAuthTokens(data)
+            setUser(jwt_decode(data.access))
+            localStorage.setItem('authTokens', JSON.stringify(data))
+            history.push('/')
+        }else{
+            alert('Something went wrong!')
+        }
+    }
 
     let logoutUser = () => {
         setAuthTokens(null)

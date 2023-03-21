@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Video, User
 from django.contrib.auth.decorators import login_required
 from .models import Video
 from .decorators import teacher_required
