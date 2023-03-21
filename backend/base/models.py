@@ -20,6 +20,10 @@ class User(models.Model):
     group = models.ForeignKey(Group, on_delete=models.CASCADE, null=True)
     attendance = models.ManyToManyField(Attendance, null=True)
 
+    class Meta:
+        permissions = (('student', "can_watch_video"),
+                       ('teacher', 'can_upload_video'))
+
 
 class Video(models.Model):
     caption = models.CharField(max_length=100)
